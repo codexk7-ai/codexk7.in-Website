@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
-import Link from 'next/link';
-import { Shield, Cpu, Activity, Award, CheckCircle2, ArrowRight, Zap, Target, Users, Server } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About CODEXK7 — AI Engineering Studio',
@@ -36,45 +35,49 @@ const PRINCIPLES = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground pt-16">
+    <main className="min-h-screen pt-16" style={{ background: 'var(--background)' }}>
       {/* Studio Overview Hero */}
-      <section className="py-16 sm:py-24 border-b border-border bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 border-b relative overflow-hidden" style={{ borderColor: 'var(--border)' }}>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-14">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914] bg-[#E50914]/10 px-3 py-1 rounded-md">
+            <span className="badge-editorial inline-block mb-4">
               ABOUT CODEXK7
             </span>
-            <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl mt-4 mb-4">
-              WE BUILD THE AGENTIC INFRASTRUCTURE OF TOMORROW.
+            <h1 className="mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              We build the{' '}
+              <em style={{ fontStyle: 'italic', color: 'var(--primary)' }}>
+                Agentic Infrastructure
+              </em>{' '}
+              of tomorrow.
             </h1>
-            <p className="text-base sm:text-lg text-foreground/75 leading-relaxed font-normal">
+            <p className="text-base sm:text-lg leading-relaxed font-normal" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
               CODEXK7 is a premier AI engineering and product studio. We specialize in designing, engineering, and deploying autonomous agents, Generative AI applications, custom RAG engines, and scalable microSaaS platforms.
             </p>
           </div>
 
           {/* Synthetic Data Metrics Grid */}
           <div className="mb-16">
-            <div className="flex items-center justify-between mb-6 pb-2 border-b border-border">
-              <span className="text-xs font-mono font-bold tracking-widest text-foreground/60 uppercase flex items-center gap-2">
-                <Activity className="h-4 w-4 text-[#E50914]" />
-                SYSTEM PERFORMANCE SYNTHETIC BENCHMARKS
+            <div className="flex items-center justify-between mb-6 pb-2 border-b" style={{ borderColor: 'var(--border)' }}>
+              <span className="text-xs font-semibold tracking-widest uppercase flex items-center gap-2" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
+                <Activity className="h-4 w-4" style={{ color: 'var(--primary)' }} />
+                SYSTEM PERFORMANCE BENCHMARKS
               </span>
-              <span className="text-[10px] font-mono text-foreground/40">UPDATED LIVE • Q3 2026</span>
+              <span className="text-[10px] font-mono" style={{ color: 'var(--faint-fg)' }}>UPDATED LIVE • Q3 2026</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {SYNTHETIC_METRICS.map((metric) => (
                 <div
                   key={metric.label}
-                  className="p-6 rounded-2xl border border-border bg-muted/20 shadow-xs hover:border-[#E50914]/40 transition-colors"
+                  className="card-editorial-hover p-6 rounded-xl"
                 >
-                  <span className="text-[10px] font-mono font-bold tracking-wider text-foreground/60 block mb-2">
+                  <span className="text-[10px] font-semibold tracking-wider block mb-2" style={{ color: 'var(--faint-fg)', fontFamily: "'Inter', sans-serif" }}>
                     {metric.label}
                   </span>
-                  <div className="text-3xl sm:text-4xl font-extrabold text-foreground font-mono tracking-tight text-[#E50914] mb-2">
+                  <div className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2" style={{ color: 'var(--primary)', fontFamily: "'Cormorant Garamond', serif" }}>
                     {metric.value}
                   </div>
-                  <p className="text-xs text-foreground/70 font-normal">
+                  <p className="text-xs font-normal" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
                     {metric.sub}
                   </p>
                 </div>
@@ -83,27 +86,26 @@ export default function AboutPage() {
           </div>
 
           {/* Engineering Principles */}
-          <div className="pt-10 border-t border-border">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground mb-8">
-              OUR ENGINEERING PHILOSOPHY
+          <div className="pt-10 border-t" style={{ borderColor: 'var(--border)' }}>
+            <h2 className="mb-8" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              Our Engineering Philosophy
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {PRINCIPLES.map((principle, idx) => (
-                <div key={principle.title} className="p-6 rounded-2xl border border-border bg-white shadow-xs">
-                  <span className="text-xs font-mono font-bold text-[#E50914] block mb-3">
-                    0{idx + 1} // PRINCIPLE
+                <div key={principle.title} className="card-editorial-hover p-6 rounded-xl">
+                  <span className="text-xs font-bold block mb-3" style={{ color: 'var(--primary)', fontFamily: "'JetBrains Mono', monospace" }}>
+                    0{idx + 1} • PRINCIPLE
                   </span>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
+                  <h3 className="text-lg font-bold mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", color: 'var(--foreground)' }}>
                     {principle.title}
                   </h3>
-                  <p className="text-sm text-foreground/75 leading-relaxed font-normal">
+                  <p className="text-sm leading-relaxed font-normal" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
                     {principle.description}
                   </p>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </section>
 

@@ -87,26 +87,49 @@ export default function AgentDemo() {
   };
 
   return (
-    <section id="agent-demo" className="py-20 bg-white border-b border-border">
+    <section
+      id="agent-demo"
+      className="py-20 border-b"
+      style={{ borderColor: 'var(--border)', background: 'var(--background)' }}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914]">
-            Interactive UI Simulation
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl mt-2 mb-4">
-            LIVE AGENT DEMO.
+          <span className="badge-editorial">Interactive Demo</span>
+          <h2
+            className="mt-5 mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Live Agent{' '}
+            <em style={{ fontStyle: 'italic', color: 'var(--primary)' }}>Demo.</em>
           </h2>
-          <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
-            Test how CODEXK7 agentic workflows execute multi-step reasoning, tool invocations, and deterministic actions.
+          <p
+            className="text-base sm:text-lg leading-relaxed"
+            style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}
+          >
+            Test how CODEXK7 agentic workflows execute multi-step reasoning,
+            tool invocations, and deterministic actions.
           </p>
         </div>
 
         {/* Demo Playground Layout */}
-        <div className="rounded-2xl border border-border bg-muted/40 p-6 md:p-8 shadow-xs">
-          {/* Top Controls: Preset Prompt Selectors */}
+        <div
+          className="rounded-2xl p-6 md:p-8"
+          style={{
+            background: 'var(--card)',
+            border: '1px solid var(--border)',
+          }}
+        >
+          {/* Preset Prompt Selectors */}
           <div className="mb-6">
-            <label className="block text-xs font-mono font-bold text-foreground/70 uppercase mb-3">
+            <label
+              className="block text-xs font-bold uppercase mb-3"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                color: 'var(--muted-fg)',
+                letterSpacing: '0.08em',
+              }}
+            >
               Select Sample Execution Task:
             </label>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -117,22 +140,45 @@ export default function AgentDemo() {
                     setSelectedPrompt(prompt);
                     handleReset();
                   }}
-                  className={`p-3.5 rounded-xl border text-left text-xs font-mono transition-all cursor-pointer ${
-                    selectedPrompt === prompt && customPrompt === ''
-                      ? 'border-[#E50914] bg-white text-foreground shadow-xs ring-1 ring-[#E50914]/30 font-bold'
-                      : 'border-border bg-white/70 text-foreground/70 hover:border-foreground/30'
-                  }`}
+                  className={`p-3.5 rounded-xl text-left text-xs transition-all cursor-pointer`}
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    border: `1px solid ${
+                      selectedPrompt === prompt && customPrompt === ''
+                        ? 'rgba(168,32,32,0.5)'
+                        : 'var(--border)'
+                    }`,
+                    background:
+                      selectedPrompt === prompt && customPrompt === ''
+                        ? 'rgba(168,32,32,0.06)'
+                        : 'var(--surface)',
+                    color:
+                      selectedPrompt === prompt && customPrompt === ''
+                        ? 'var(--foreground)'
+                        : 'var(--muted-fg)',
+                    fontWeight:
+                      selectedPrompt === prompt && customPrompt === '' ? 700 : 400,
+                  }}
                 >
-                  &quot;{prompt}&quot;
+                  &ldquo;{prompt}&rdquo;
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Action Execution Button Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pt-4 border-t border-border">
-            <div className="flex items-center gap-2 text-xs font-mono text-foreground/60">
-              <Bot className="h-4 w-4 text-[#E50914]" />
+          {/* Action Bar */}
+          <div
+            className="flex flex-wrap items-center justify-between gap-4 mb-8 pt-4"
+            style={{ borderTop: '1px solid var(--border)' }}
+          >
+            <div
+              className="flex items-center gap-2 text-xs"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: 'var(--muted-fg)',
+              }}
+            >
+              <Bot className="h-4 w-4" style={{ color: 'var(--primary)' }} />
               <span>Agent Mode: Deterministic Multi-Step</span>
             </div>
 
@@ -140,7 +186,13 @@ export default function AgentDemo() {
               <button
                 onClick={handleReset}
                 disabled={isRunning}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-border bg-white text-xs font-mono font-medium text-foreground hover:bg-muted cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium cursor-pointer disabled:opacity-50"
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  border: '1px solid var(--border)',
+                  background: 'var(--surface)',
+                  color: 'var(--muted-fg)',
+                }}
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset</span>
@@ -149,7 +201,8 @@ export default function AgentDemo() {
               <button
                 onClick={handleRunDemo}
                 disabled={isRunning}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-foreground text-white text-xs font-mono font-bold hover:bg-[#E50914] transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
+                className="btn-primary inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold cursor-pointer disabled:opacity-50"
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
                 <Play className="h-3.5 w-3.5 fill-current" />
                 <span>{isRunning ? 'RUNNING DEMO...' : 'EXECUTE AGENT'}</span>
@@ -157,45 +210,83 @@ export default function AgentDemo() {
             </div>
           </div>
 
-          {/* Terminal Console Execution Log */}
-          <div className="rounded-xl border border-foreground/20 bg-foreground text-white p-5 font-mono text-xs shadow-md">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 text-white/60">
+          {/* Terminal Console */}
+          <div
+            className="rounded-xl p-5 font-mono text-xs"
+            style={{
+              background: 'var(--surface-dark)',
+              border: '1px solid rgba(168,32,32,0.15)',
+              color: '#E8E3DC',
+            }}
+          >
+            <div
+              className="flex items-center justify-between pb-3 mb-4"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+            >
               <div className="flex items-center gap-2">
-                <Terminal className="h-4 w-4 text-[#E50914]" />
-                <span>CODEXK7 Agentic Execution Console v1.0.4</span>
+                <Terminal className="h-4 w-4" style={{ color: 'var(--primary)' }} />
+                <span style={{ color: 'rgba(232,227,220,0.6)' }}>
+                  CODEXK7 Agentic Execution Console v1.0.4
+                </span>
               </div>
-              <span className="text-[10px] text-[#E50914] font-bold">
+              <span
+                className="text-[10px] font-bold"
+                style={{ color: 'var(--primary)' }}
+              >
                 {isRunning ? '● EXECUTING' : isCompleted ? '✓ FINISHED' : 'STANDBY'}
               </span>
             </div>
 
-            {/* Prompt Display */}
-            <div className="mb-4 text-white/80">
-              <span className="text-[#E50914] font-bold">&gt; TASK: </span>
+            {/* Prompt */}
+            <div className="mb-4" style={{ color: 'rgba(232,227,220,0.8)' }}>
+              <span className="font-bold" style={{ color: 'var(--primary)' }}>
+                &gt; TASK:{' '}
+              </span>
               <span>{activePrompt}</span>
             </div>
 
-            {/* Step Trace Output */}
+            {/* Step Trace */}
             <div className="space-y-2 mb-6 min-h-[100px]">
               {currentStep < 0 && (
-                <div className="text-white/40 italic">Click &apos;EXECUTE AGENT&apos; to simulate workflow...</div>
+                <div style={{ color: 'rgba(232,227,220,0.35)', fontStyle: 'italic' }}>
+                  Click &apos;EXECUTE AGENT&apos; to simulate workflow...
+                </div>
               )}
               {currentLogs.steps.slice(0, currentStep + 1).map((stepText, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-white/90">
-                  <ArrowRight className="h-3.5 w-3.5 text-[#E50914] mt-0.5 shrink-0" />
+                <div
+                  key={idx}
+                  className="flex items-start gap-2"
+                  style={{ color: 'rgba(232,227,220,0.9)' }}
+                >
+                  <ArrowRight
+                    className="h-3.5 w-3.5 mt-0.5 shrink-0"
+                    style={{ color: 'var(--primary)' }}
+                  />
                   <span>{stepText}</span>
                 </div>
               ))}
             </div>
 
-            {/* Final Outcome Output */}
+            {/* Result */}
             {isCompleted && (
-              <div className="p-4 rounded-lg bg-white/5 border border-white/15 text-white/90">
-                <div className="flex items-center gap-2 text-[#E50914] font-bold mb-2">
+              <div
+                className="p-4 rounded-lg"
+                style={{
+                  background: 'rgba(168,32,32,0.08)',
+                  border: '1px solid rgba(168,32,32,0.25)',
+                }}
+              >
+                <div
+                  className="flex items-center gap-2 font-bold mb-2"
+                  style={{ color: 'var(--primary)' }}
+                >
                   <CheckCircle2 className="h-4 w-4" />
                   <span>WORKFLOW COMPLETED</span>
                 </div>
-                <pre className="whitespace-pre-wrap font-mono text-[11px] leading-relaxed text-white/80">
+                <pre
+                  className="whitespace-pre-wrap font-mono text-[11px] leading-relaxed"
+                  style={{ color: 'rgba(232,227,220,0.8)' }}
+                >
                   {currentLogs.output}
                 </pre>
               </div>

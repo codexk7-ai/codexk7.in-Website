@@ -15,7 +15,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 12);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,7 +25,6 @@ export default function Navbar() {
         setMobileMenuOpen(false);
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
@@ -45,15 +43,15 @@ export default function Navbar() {
     <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="site-header__bar">
         {/* Brand */}
-        <Link 
-          href="/" 
-          className="site-header__brand flex items-center gap-1 text-xl font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
+        <Link
+          href="/"
+          className="site-header__brand"
           onClick={() => setMobileMenuOpen(false)}
         >
-          CODEX<span className="text-[#E50914]">K7</span>
+          CODEX<span>K7</span>
         </Link>
 
-        {/* Desktop Nav: Home, Service, Product, About */}
+        {/* Desktop Nav */}
         <nav className="site-header__desktop" aria-label="Primary Desktop Navigation">
           {navLinks.map((item) => {
             const isActive = pathname === item.href;
@@ -61,9 +59,8 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-[#E50914] ${
-                  isActive ? 'text-[#E50914] font-semibold' : 'text-foreground/80'
-                }`}
+                className={isActive ? 'active-link' : ''}
+                style={isActive ? { color: 'var(--primary)', fontWeight: 600 } : {}}
               >
                 {item.label}
               </Link>
@@ -77,7 +74,7 @@ export default function Navbar() {
             href="/book-call"
             className="site-header__cta site-header__cta--desktop group"
           >
-            <span>Book Call</span>
+            <span>Book Free Call</span>
             <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </Link>
 
@@ -90,9 +87,9 @@ export default function Navbar() {
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileMenuOpen ? (
-              <X className="h-5 w-5 text-foreground" />
+              <X className="h-5 w-5" />
             ) : (
-              <Menu className="h-5 w-5 text-foreground" />
+              <Menu className="h-5 w-5" />
             )}
           </button>
         </div>
@@ -111,9 +108,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`py-2 text-base font-medium transition-colors hover:text-[#E50914] ${
-                  isActive ? 'text-[#E50914] font-semibold' : 'text-foreground'
-                }`}
+                style={isActive ? { color: 'var(--primary)', fontWeight: 600 } : {}}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
@@ -125,7 +120,7 @@ export default function Navbar() {
             className="site-header__cta mt-3 flex w-full items-center justify-center gap-2"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span>Book Call</span>
+            <span>Book Free Call</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </nav>

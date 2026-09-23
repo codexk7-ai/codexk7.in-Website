@@ -49,42 +49,46 @@ export default function Contact() {
     setStatus('loading');
     setErrorMessage('');
 
-    /* 
-      FUTURE BACKEND INTEGRATION HANDOFF:
-      Expected API Endpoint: POST /api/contact
-      Payload: { name, email, company, projectType, budget, message }
-    */
-
     setTimeout(() => {
       setStatus('success');
     }, 1200);
   };
 
   return (
-    <section id="contact" className="py-20 bg-white border-b border-border">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 border-b relative overflow-hidden" style={{ borderColor: 'var(--border)', background: 'var(--background)' }}>
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914]">
+          <span className="badge-editorial inline-block mb-3">
             Start a Conversation
           </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl mt-2 mb-4">
-            LET&apos;S DISCUSS YOUR PROJECT.
+          <h2 className="mt-2 mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            Let&apos;s discuss your{' '}
+            <em style={{ fontStyle: 'italic', color: 'var(--primary)' }}>Project.</em>
           </h2>
-          <p className="text-base text-foreground/75 leading-relaxed font-normal">
+          <p className="text-base leading-relaxed font-normal" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
             Tell us about your objectives, timeline, and vision. We&apos;ll analyze your requirements and follow up promptly.
           </p>
         </div>
 
         {/* Contact Form Container */}
-        <div className="rounded-2xl border border-border bg-muted/20 p-6 sm:p-10 shadow-xs">
+        <div className="card-editorial p-6 sm:p-10 shadow-xs">
           {status === 'success' ? (
             <div className="py-12 text-center flex flex-col items-center justify-center">
-              <div className="h-16 w-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-6">
-                <CheckCircle2 className="h-10 w-10 text-[#E50914]" />
+              <div
+                className="h-16 w-16 rounded-full flex items-center justify-center mb-6"
+                style={{
+                  background: 'rgba(168,32,32,0.08)',
+                  border: '1px solid rgba(168,32,32,0.25)',
+                  color: 'var(--primary)',
+                }}
+              >
+                <CheckCircle2 className="h-10 w-10" style={{ color: 'var(--primary)' }} />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">Message Received</h3>
-              <p className="text-sm text-foreground/75 max-w-md mx-auto mb-8 font-normal">
+              <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", color: 'var(--foreground)' }}>
+                Message Received
+              </h3>
+              <p className="text-sm max-w-md mx-auto mb-8 font-normal" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
                 Thank you for reaching out to CODEXK7. Our engineering team will review your inquiry and get back to you shortly.
               </p>
               <button
@@ -99,7 +103,7 @@ export default function Contact() {
                     message: '',
                   });
                 }}
-                className="px-6 py-2.5 rounded-xl border border-border bg-white text-xs font-mono font-bold text-foreground hover:bg-muted cursor-pointer"
+                className="btn-outline px-6 py-2.5 rounded-lg text-xs font-semibold cursor-pointer"
               >
                 Send Another Message
               </button>
@@ -107,8 +111,15 @@ export default function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               {status === 'error' && (
-                <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-mono flex items-center gap-2">
-                  <AlertCircle className="h-4 w-4 shrink-0 text-[#E50914]" />
+                <div
+                  className="p-4 rounded-xl text-xs font-mono flex items-center gap-2"
+                  style={{
+                    background: 'rgba(168,32,32,0.08)',
+                    border: '1px solid rgba(168,32,32,0.3)',
+                    color: 'var(--primary)',
+                  }}
+                >
+                  <AlertCircle className="h-4 w-4 shrink-0" style={{ color: 'var(--primary)' }} />
                   <span>{errorMessage}</span>
                 </div>
               )}
@@ -116,8 +127,8 @@ export default function Contact() {
               {/* Name & Email Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-mono font-bold text-foreground/80 uppercase mb-2">
-                    Name <span className="text-[#E50914]">*</span>
+                  <label className="block text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-fg)', letterSpacing: '0.05em', fontFamily: "'Inter', sans-serif" }}>
+                    Name <span style={{ color: 'var(--primary)' }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -126,13 +137,18 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Jane Doe"
                     required
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-[#E50914] focus:outline-none transition-colors"
+                    className="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors"
+                    style={{
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border)',
+                      color: 'var(--foreground)',
+                    }}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-bold text-foreground/80 uppercase mb-2">
-                    Email <span className="text-[#E50914]">*</span>
+                  <label className="block text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-fg)', letterSpacing: '0.05em', fontFamily: "'Inter', sans-serif" }}>
+                    Email <span style={{ color: 'var(--primary)' }}>*</span>
                   </label>
                   <input
                     type="email"
@@ -141,7 +157,12 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="jane@company.com"
                     required
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-[#E50914] focus:outline-none transition-colors"
+                    className="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors"
+                    style={{
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border)',
+                      color: 'var(--foreground)',
+                    }}
                   />
                 </div>
               </div>
@@ -149,7 +170,7 @@ export default function Contact() {
               {/* Company & Project Type Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-mono font-bold text-foreground/80 uppercase mb-2">
+                  <label className="block text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-fg)', letterSpacing: '0.05em', fontFamily: "'Inter', sans-serif" }}>
                     Company / Organization
                   </label>
                   <input
@@ -158,22 +179,32 @@ export default function Contact() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Acme Corp"
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-[#E50914] focus:outline-none transition-colors"
+                    className="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors"
+                    style={{
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border)',
+                      color: 'var(--foreground)',
+                    }}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-bold text-foreground/80 uppercase mb-2">
+                  <label className="block text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-fg)', letterSpacing: '0.05em', fontFamily: "'Inter', sans-serif" }}>
                     Project Type
                   </label>
                   <select
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground focus:border-[#E50914] focus:outline-none transition-colors cursor-pointer"
+                    className="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors cursor-pointer"
+                    style={{
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border)',
+                      color: 'var(--foreground)',
+                    }}
                   >
                     {PROJECT_TYPES.map((type) => (
-                      <option key={type} value={type}>
+                      <option key={type} value={type} style={{ background: 'var(--card)', color: 'var(--foreground)' }}>
                         {type}
                       </option>
                     ))}
@@ -183,31 +214,36 @@ export default function Contact() {
 
               {/* Budget Selector */}
               <div>
-                <label className="block text-xs font-mono font-bold text-foreground/80 uppercase mb-2">
+                <label className="block text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-fg)', letterSpacing: '0.05em', fontFamily: "'Inter', sans-serif" }}>
                   Budget Expectation
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {BUDGET_RANGES.map((range) => (
-                    <button
-                      key={range}
-                      type="button"
-                      onClick={() => setFormData({ ...formData, budget: range })}
-                      className={`py-2.5 px-3 rounded-xl border text-xs font-mono font-semibold transition-all cursor-pointer ${
-                        formData.budget === range
-                          ? 'border-[#E50914] bg-[#E50914] text-white shadow-xs'
-                          : 'border-border bg-white text-foreground/70 hover:border-foreground/30'
-                      }`}
-                    >
-                      {range}
-                    </button>
-                  ))}
+                  {BUDGET_RANGES.map((range) => {
+                    const isSelected = formData.budget === range;
+                    return (
+                      <button
+                        key={range}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, budget: range })}
+                        className="py-2.5 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer"
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          border: `1px solid ${isSelected ? 'var(--primary)' : 'var(--border)'}`,
+                          background: isSelected ? 'var(--primary)' : 'var(--surface)',
+                          color: isSelected ? '#ffffff' : 'var(--muted-fg)',
+                        }}
+                      >
+                        {range}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Message Textarea */}
               <div>
-                <label className="block text-xs font-mono font-bold text-foreground/80 uppercase mb-2">
-                  Project Description <span className="text-[#E50914]">*</span>
+                <label className="block text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-fg)', letterSpacing: '0.05em', fontFamily: "'Inter', sans-serif" }}>
+                  Project Description <span style={{ color: 'var(--primary)' }}>*</span>
                 </label>
                 <textarea
                   name="message"
@@ -216,7 +252,12 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Outline your goal, timeline, technical context, or key requirements..."
                   required
-                  className="w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-[#E50914] focus:outline-none transition-colors resize-y"
+                  className="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors resize-y"
+                  style={{
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
+                    color: 'var(--foreground)',
+                  }}
                 />
               </div>
 
@@ -225,7 +266,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full min-h-[3.25rem] rounded-xl bg-foreground text-white font-mono font-bold text-sm tracking-wider uppercase hover:bg-[#E50914] transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 shadow-xs"
+                  className="btn-primary w-full min-h-[3.25rem] rounded-lg text-white font-semibold text-sm tracking-wider uppercase flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                 >
                   {status === 'loading' ? (
                     <>

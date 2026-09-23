@@ -5,38 +5,58 @@ import { ArrowRight, Calendar } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section className="py-20 bg-foreground text-white overflow-hidden relative">
-      {/* Background Accent Lines */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
+    <section
+      className="py-24 border-t overflow-hidden relative"
+      style={{ borderColor: 'var(--border)', background: 'var(--surface-alt)' }}
+    >
+      {/* Subtle warm ambient glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full opacity-30 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(168,32,32,0.12) 0%, rgba(168,32,32,0.04) 60%, transparent 100%)',
+          filter: 'blur(60px)',
+        }}
+      />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914] bg-[#E50914]/20 px-3.5 py-1.5 rounded-full inline-block mb-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+        <span className="badge-editorial inline-block mb-8">
           READY TO SHIP?
         </span>
 
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-6xl max-w-3xl mx-auto leading-tight mb-6">
-          HAVE AN IDEA? <br />
-          <span className="text-[#E50914]">LET&apos;S BUILD IT.</span>
+        <h2
+          className="max-w-3xl mx-auto leading-tight mb-6"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          Have an idea?{' '}
+          <br />
+          <em style={{ fontStyle: 'italic', color: 'var(--primary)' }}>
+            Let&apos;s build it.
+          </em>
         </h2>
 
-        <p className="max-w-xl mx-auto text-base sm:text-lg text-white/70 leading-relaxed font-normal mb-10">
-          Partner with CODEXK7 to design, engineer, and deploy intelligent AI systems and production-ready applications.
+        <p
+          className="max-w-xl mx-auto text-base sm:text-lg leading-relaxed font-normal mb-10"
+          style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}
+        >
+          Partner with CODEXK7 to design, engineer, and deploy intelligent AI
+          systems and production-ready applications.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="#contact"
-            className="inline-flex items-center justify-center min-h-[3.25rem] px-8 rounded-xl bg-[#E50914] text-white font-medium text-base hover:bg-[#c70712] transition-colors duration-200 group shadow-md"
+            href="/book-call"
+            className="btn-primary inline-flex items-center justify-center min-h-[3rem] px-8 rounded-lg text-sm group"
           >
             <span>START A PROJECT</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
-            href="#contact"
-            className="inline-flex items-center justify-center min-h-[3.25rem] px-8 rounded-xl border border-white/20 bg-white/5 text-white font-medium text-base hover:bg-white/10 transition-colors duration-200 group"
+            href="/book-call"
+            className="btn-outline inline-flex items-center justify-center min-h-[3rem] px-8 rounded-lg text-sm group"
           >
-            <Calendar className="mr-2 h-4 w-4 text-[#E50914]" />
+            <Calendar className="mr-2 h-4 w-4" style={{ color: 'var(--primary)' }} />
             <span>BOOK A CONSULTATION</span>
           </Link>
         </div>

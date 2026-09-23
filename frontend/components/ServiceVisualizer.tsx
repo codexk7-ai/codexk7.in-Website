@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Cpu, Database, Zap, ShieldCheck, Code2, ArrowRight, Play, RefreshCw } from 'lucide-react';
+import { Cpu, Database, Zap, ShieldCheck, Code2 } from 'lucide-react';
 
 interface NodeItem {
   id: string;
@@ -9,6 +9,7 @@ interface NodeItem {
   type: string;
   latency: string;
   status: 'ACTIVE' | 'PROCESSING' | 'IDLE';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any;
   details: string;
 }
@@ -35,18 +36,35 @@ export default function ServiceVisualizer() {
   const activeNode = INITIAL_NODES.find((n) => n.id === activeNodeId) || INITIAL_NODES[2];
 
   return (
-    <div className="rounded-2xl border border-border bg-foreground text-white p-6 shadow-xl relative overflow-hidden font-mono">
-      {/* Background Accent Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-      <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-[#E50914]/15 blur-3xl pointer-events-none" />
-
+    <div
+      className="rounded-2xl p-6 relative overflow-hidden"
+      style={{
+        background: 'var(--surface-dark)',
+        border: '1px solid rgba(168,32,32,0.12)',
+        fontFamily: "'JetBrains Mono', monospace",
+        color: '#E8E3DC',
+      }}
+    >
       {/* Header Bar */}
-      <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10 text-xs">
+      <div
+        className="flex items-center justify-between pb-4 mb-6 text-xs"
+        style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+      >
         <div className="flex items-center gap-2">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#E50914] animate-pulse" />
-          <span className="font-bold tracking-widest text-[#E50914] uppercase">AI ENGINE REAL-TIME VISUALIZER</span>
+          <span
+            className="inline-block h-2.5 w-2.5 rounded-full animate-pulse"
+            style={{ background: 'var(--primary)' }}
+          />
+          <span
+            className="font-bold tracking-widest uppercase"
+            style={{ color: 'var(--primary)' }}
+          >
+            AI ENGINE REAL-TIME VISUALIZER
+          </span>
         </div>
-        <span className="text-white/40 text-[11px]">CODEXK7 SYSTEM SIMULATOR v2.4</span>
+        <span style={{ color: 'rgba(232,227,220,0.35)', fontSize: '11px' }}>
+          CODEXK7 SYSTEM SIMULATOR v2.4
+        </span>
       </div>
 
       {/* Node Flow Diagram */}
@@ -59,33 +77,84 @@ export default function ServiceVisualizer() {
           return (
             <div
               key={node.id}
+              role="button"
+              tabIndex={0}
               onClick={() => setActiveNodeId(node.id)}
-              className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
-                isSelected
-                  ? 'border-[#E50914] bg-white/10 ring-1 ring-[#E50914]/50'
-                  : 'border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10'
-              }`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveNodeId(node.id);
+                }
+              }}
+              className="p-3.5 rounded-xl flex items-center justify-between cursor-pointer transition-all select-none"
+              style={{
+                border: `1px solid ${
+                  isSelected
+                    ? 'rgba(168,32,32,0.5)'
+                    : 'rgba(255,255,255,0.07)'
+                }`,
+                background: isSelected
+                  ? 'rgba(168,32,32,0.08)'
+                  : 'rgba(255,255,255,0.03)',
+                touchAction: 'manipulation',
+              }}
             >
               <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg ${isSelected || isPulsing ? 'bg-[#E50914] text-white' : 'bg-white/10 text-white/70'}`}>
+                <div
+                  className="p-2 rounded-lg"
+                  style={{
+                    background:
+                      isSelected || isPulsing
+                        ? 'var(--primary)'
+                        : 'rgba(255,255,255,0.07)',
+                    color: isSelected || isPulsing ? '#fff' : 'rgba(232,227,220,0.5)',
+                  }}
+                >
                   <Icon className="h-4 w-4" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-white">{node.name}</span>
+                    <span
+                      className="text-xs font-bold"
+                      style={{ color: '#E8E3DC' }}
+                    >
+                      {node.name}
+                    </span>
                     {isPulsing && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E50914]/20 text-[#E50914] border border-[#E50914]/40 font-bold">
+                      <span
+                        className="text-[10px] px-1.5 py-0.5 rounded font-bold"
+                        style={{
+                          background: 'rgba(168,32,32,0.15)',
+                          border: '1px solid rgba(168,32,32,0.35)',
+                          color: 'var(--primary)',
+                        }}
+                      >
                         RUNNING
                       </span>
                     )}
                   </div>
-                  <span className="text-[10px] text-white/50 block tracking-wider">{node.type}</span>
+                  <span
+                    className="text-[10px] block tracking-wider"
+                    style={{ color: 'rgba(232,227,220,0.4)' }}
+                  >
+                    {node.type}
+                  </span>
                 </div>
               </div>
 
               <div className="text-right">
-                <span className="text-[11px] font-bold text-emerald-400 block">{node.latency}</span>
-                <span className="text-[9px] text-white/40 uppercase">LATENCY</span>
+                <span
+                  className="text-[11px] font-bold block"
+                  style={{ color: '#6EE7B7' }}
+                >
+                  {node.latency}
+                </span>
+                <span
+                  className="text-[9px] uppercase"
+                  style={{ color: 'rgba(232,227,220,0.3)' }}
+                >
+                  LATENCY
+                </span>
               </div>
             </div>
           );
@@ -93,18 +162,46 @@ export default function ServiceVisualizer() {
       </div>
 
       {/* Active Node Detail Card */}
-      <div className="p-4 rounded-xl border border-[#E50914]/30 bg-[#E50914]/10 text-xs">
+      <div
+        className="p-4 rounded-xl text-xs"
+        style={{
+          border: '1px solid rgba(168,32,32,0.25)',
+          background: 'rgba(168,32,32,0.07)',
+        }}
+      >
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#E50914]">SELECTED MODULE INSPECTOR</span>
-          <span className="text-[10px] text-white/60">NODE ID: #{activeNode.id}</span>
+          <span
+            className="text-[10px] font-bold uppercase tracking-widest"
+            style={{ color: 'var(--primary)' }}
+          >
+            SELECTED MODULE INSPECTOR
+          </span>
+          <span style={{ color: 'rgba(232,227,220,0.35)', fontSize: '10px' }}>
+            NODE ID: #{activeNode.id}
+          </span>
         </div>
-        <p className="text-xs text-white/90 leading-relaxed font-sans mb-3">
+        <p
+          className="text-xs leading-relaxed mb-3"
+          style={{ fontFamily: "'Inter', sans-serif", color: 'rgba(232,227,220,0.8)' }}
+        >
           {activeNode.details}
         </p>
-        <div className="flex items-center justify-between text-[11px] pt-2 border-t border-white/10 text-white/60">
+        <div
+          className="flex items-center justify-between text-[11px] pt-2"
+          style={{
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+            color: 'rgba(232,227,220,0.4)',
+          }}
+        >
           <span>PIPELINE STATUS:</span>
-          <span className="font-bold text-white uppercase flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <span
+            className="font-bold uppercase flex items-center gap-1.5"
+            style={{ color: '#E8E3DC' }}
+          >
+            <span
+              className="h-1.5 w-1.5 rounded-full"
+              style={{ background: '#6EE7B7' }}
+            />
             OPERATIONAL
           </span>
         </div>

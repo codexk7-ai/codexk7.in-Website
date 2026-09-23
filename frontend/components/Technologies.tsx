@@ -6,36 +6,54 @@ import TechnologyCard from './TechnologyCard';
 
 export default function Technologies() {
   const [activeCategory, setActiveCategory] = useState(TECHNOLOGIES_DATA[0].id);
-
-  const selectedCategory = TECHNOLOGIES_DATA.find((cat) => cat.id === activeCategory) || TECHNOLOGIES_DATA[0];
+  const selectedCategory =
+    TECHNOLOGIES_DATA.find((cat) => cat.id === activeCategory) ||
+    TECHNOLOGIES_DATA[0];
 
   return (
-    <section id="technology" className="py-20 bg-muted/30 border-b border-border">
+    <section
+      id="technology"
+      className="py-20 border-b"
+      style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914]">
-            Technical Stack
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl mt-2 mb-4">
-            POWERED BY THE MODERN AI STACK.
+          <span className="badge-editorial">Technical Stack</span>
+          <h2
+            className="mt-5 mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Powered by the Modern AI Stack.
           </h2>
-          <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
-            We use production-verified frameworks, model gateways, vector databases, and cloud infrastructure.
+          <p
+            className="text-base sm:text-lg leading-relaxed"
+            style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}
+          >
+            We use production-verified frameworks, model gateways, vector
+            databases, and cloud infrastructure.
           </p>
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap gap-2 mb-10 pb-4 border-b border-border">
+        <div
+          className="flex flex-wrap gap-2 mb-10 pb-4"
+          style={{ borderBottom: '1px solid var(--border)' }}
+        >
           {TECHNOLOGIES_DATA.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all cursor-pointer ${
-                activeCategory === cat.id
-                  ? 'bg-foreground text-white shadow-xs'
-                  : 'bg-white border border-border text-foreground/70 hover:border-foreground/30 hover:text-foreground'
-              }`}
+              className="px-4 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                background:
+                  activeCategory === cat.id ? 'var(--primary)' : 'var(--card)',
+                color: activeCategory === cat.id ? '#fff' : 'var(--muted-fg)',
+                border: `1px solid ${
+                  activeCategory === cat.id ? 'var(--primary)' : 'var(--border)'
+                }`,
+                letterSpacing: '0.03em',
+              }}
             >
               {cat.name}
             </button>

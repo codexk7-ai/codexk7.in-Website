@@ -5,7 +5,7 @@ import Services from '@/components/Services';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Cpu, Layers, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'AI Engineering & Agentic Services — CODEXK7',
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 export default function ServicePage() {
   return (
-    <main className="min-h-screen bg-background text-foreground pt-16">
+    <main className="min-h-screen pt-16" style={{ background: 'var(--background)' }}>
       {/* Service Page Hero Header */}
-      <section className="py-16 sm:py-24 border-b border-border bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 border-b relative overflow-hidden" style={{ borderColor: 'var(--border)' }}>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Side: Interactive AI Animation / Visualizer */}
@@ -29,13 +29,16 @@ export default function ServicePage() {
             {/* Right Side: Service Content */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914] bg-[#E50914]/10 px-3 py-1 rounded-md">
+                <span className="badge-editorial inline-block mb-3">
                   OUR AI ENGINEERING SERVICES
                 </span>
-                <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl mt-4 mb-3">
-                  PRODUCTION-GRADE AI SYSTEMS & AGENTS.
+                <h1 className="mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  Production-grade{' '}
+                  <em style={{ fontStyle: 'italic', color: 'var(--primary)' }}>
+                    AI Systems &amp; Agents.
+                  </em>
                 </h1>
-                <p className="text-base text-foreground/75 leading-relaxed font-normal">
+                <p className="text-base leading-relaxed font-normal" style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}>
                   We translate complex generative AI and autonomous agent research into robust, fault-tolerant software products designed for scale.
                 </p>
               </div>
@@ -49,24 +52,24 @@ export default function ServicePage() {
                   'Deterministic Tool Calling & Custom API Integration',
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#E50914] shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium text-foreground">{point}</span>
+                    <CheckCircle2 className="h-5 w-5 shrink-0 mt-0.5" style={{ color: 'var(--primary)' }} />
+                    <span className="text-sm font-medium" style={{ color: 'var(--foreground)', fontFamily: "'Inter', sans-serif" }}>{point}</span>
                   </div>
                 ))}
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-4 font-mono">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <Link
                   href="/book-call"
-                  className="px-6 py-3 rounded-xl bg-foreground text-white font-bold text-xs tracking-wider uppercase hover:bg-[#E50914] transition-colors inline-flex items-center gap-2 shadow-xs"
+                  className="btn-primary px-6 py-3 rounded-lg font-semibold text-xs tracking-wider uppercase inline-flex items-center gap-2"
                 >
                   <span>Book Engineering Call</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/product"
-                  className="px-6 py-3 rounded-xl border border-border bg-muted/40 text-foreground font-bold text-xs tracking-wider uppercase hover:bg-muted transition-colors inline-flex items-center gap-2"
+                  className="btn-outline px-6 py-3 rounded-lg font-semibold text-xs tracking-wider uppercase inline-flex items-center gap-2"
                 >
                   <span>Explore Products</span>
                 </Link>
@@ -77,7 +80,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Engineering Capabilities Section (Moved from Home Page) */}
+      {/* Engineering Capabilities Section */}
       <Capabilities />
 
       {/* Full Services Matrix */}

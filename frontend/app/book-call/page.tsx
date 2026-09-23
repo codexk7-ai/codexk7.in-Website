@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function BookCallPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground pt-16">
+    <main className="min-h-screen pt-16" style={{ background: 'var(--background)' }}>
       <section className="py-12 sm:py-16">
         <Contact />
       </section>

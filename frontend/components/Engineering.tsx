@@ -7,46 +7,61 @@ const PILLARS = [
     id: 'scalability',
     title: 'SCALABILITY',
     icon: Server,
-    description: 'Serverless stateful agent architectures designed to handle concurrent LLM requests, high vector search throughput, and auto-scaling background jobs.',
+    description:
+      'Serverless stateful agent architectures designed to handle concurrent LLM requests, high vector search throughput, and auto-scaling background jobs.',
     metrics: ['Asynchronous Event Queues', 'Distributed Caching', 'Horizontal Worker Scaling'],
   },
   {
     id: 'security',
     title: 'SECURITY',
     icon: Shield,
-    description: 'Enterprise guardrail isolation, PII data redaction before model inference, encrypted token storage, and strict Row Level Security (RLS) data policies.',
+    description:
+      'Enterprise guardrail isolation, PII data redaction before model inference, encrypted token storage, and strict Row Level Security (RLS) data policies.',
     metrics: ['PII Redaction Layer', 'Strict Schema Validation', 'Role-Based Access Control'],
   },
   {
     id: 'observability',
     title: 'OBSERVABILITY',
     icon: Activity,
-    description: 'Complete trace logging for multi-step agent reasoning, tool call duration tracking, token usage metering, and real-time error reporting.',
+    description:
+      'Complete trace logging for multi-step agent reasoning, tool call duration tracking, token usage metering, and real-time error reporting.',
     metrics: ['Trace & Span Logging', 'Token Cost Attribution', 'Latency Breakdown'],
   },
   {
     id: 'reliability',
     title: 'RELIABILITY',
     icon: Cpu,
-    description: 'Deterministic fallback routing, multi-provider model redundancy, self-healing retry strategies, and automated circuit breaking.',
+    description:
+      'Deterministic fallback routing, multi-provider model redundancy, self-healing retry strategies, and automated circuit breaking.',
     metrics: ['Provider Failover', 'Deterministic Retries', 'Zero-Downtime Releases'],
   },
 ];
 
 export default function Engineering() {
   return (
-    <section className="py-20 bg-muted/30 border-b border-border">
+    <section
+      className="py-20 border-b"
+      style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#E50914]">
-            Engineering Standard
-          </span>
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl mt-2 mb-4">
-            ENGINEERED FOR PRODUCTION.
+          <span className="badge-editorial">Engineering Standard</span>
+          <h2
+            className="mt-5 mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            Engineered for{' '}
+            <em style={{ fontStyle: 'italic', color: 'var(--primary)' }}>
+              Production.
+            </em>
           </h2>
-          <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
-            Every CODEXK7 system is architected around four core engineering pillars to ensure reliability under real-world workload demands.
+          <p
+            className="text-base sm:text-lg leading-relaxed"
+            style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}
+          >
+            Every CODEXK7 system is architected around four core engineering
+            pillars to ensure reliability under real-world workload demands.
           </p>
         </div>
 
@@ -55,27 +70,54 @@ export default function Engineering() {
           {PILLARS.map((pillar) => {
             const Icon = pillar.icon;
             return (
-              <div
-                key={pillar.id}
-                className="rounded-2xl border border-border bg-white p-8 shadow-xs hover:border-foreground/30 transition-colors"
-              >
+              <div key={pillar.id} className="glass-card-hover rounded-2xl p-8">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="p-3 rounded-xl bg-muted text-foreground">
-                    <Icon className="h-6 w-6 text-[#E50914]" />
+                  <div
+                    className="p-3 rounded-xl"
+                    style={{
+                      background: 'rgba(168,32,32,0.08)',
+                      border: '1px solid rgba(168,32,32,0.18)',
+                      color: 'var(--primary)',
+                    }}
+                  >
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-bold tracking-tight text-foreground">
+                  <h3
+                    className="text-xl font-bold tracking-tight"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      color: 'var(--foreground)',
+                      letterSpacing: '-0.01em',
+                    }}
+                  >
                     {pillar.title}
                   </h3>
                 </div>
 
-                <p className="text-sm text-foreground/75 leading-relaxed mb-6 font-normal">
+                <p
+                  className="text-sm leading-relaxed mb-6 font-normal"
+                  style={{ color: 'var(--muted-fg)', fontFamily: "'Inter', sans-serif" }}
+                >
                   {pillar.description}
                 </p>
 
-                <div className="pt-5 border-t border-border/70 space-y-2">
+                <div
+                  className="pt-5 space-y-2"
+                  style={{ borderTop: '1px solid var(--border)' }}
+                >
                   {pillar.metrics.map((m) => (
-                    <div key={m} className="flex items-center gap-2 text-xs font-mono text-foreground/70">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#E50914]" />
+                    <div
+                      key={m}
+                      className="flex items-center gap-2 text-xs"
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: 'var(--muted-fg)',
+                      }}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 rounded-full"
+                        style={{ background: 'var(--primary)' }}
+                      />
                       <span>{m}</span>
                     </div>
                   ))}

@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import SVGFollowScroll from '@/components/ui/svg-follow-scroll';
 import ArchitectureVisual from '@/components/ArchitectureVisual';
 import TrustStrip from '@/components/TrustStrip';
 import Process from '@/components/Process';
@@ -13,38 +14,41 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      {/* 1. AI ENGINEERING • AGENTIC SYSTEMS • PRODUCT STUDIO */}
+    <main className="min-h-screen" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+      {/* 1. Hero — headline + CTAs */}
       <Hero />
 
-      {/* 2. System Architecture */}
+      {/* 2. Scroll Journey — IDEA → PRODUCT */}
+      <SVGFollowScroll />
+
+      {/* 3. Agentic System Architecture */}
       <ArchitectureVisual />
 
-      {/* 3. Core Operating Model */}
+      {/* 4. Engineered For strip */}
       <TrustStrip />
 
-      {/* 4. Engineering Methodology */}
+      {/* 5. Engineering Methodology */}
       <Process />
 
-      {/* 5. Technical Stack */}
+      {/* 6. Technical Stack */}
       <Technologies />
 
-      {/* 6. Proven Engineering */}
+      {/* 7. Proven Engineering */}
       <CaseStudies />
 
-      {/* 7. Proprietary IP & Tools */}
+      {/* 8. Proprietary IP & Tools */}
       <ProductShowcase />
 
-      {/* 8. Interactive UI Simulation */}
+      {/* 9. Interactive Agent Demo */}
       <AgentDemo />
 
-      {/* 9. Engineering Standard */}
+      {/* 10. Engineering Standard */}
       <Engineering />
 
-      {/* 10. Studio Philosophy */}
+      {/* 11. Studio Philosophy */}
       <WhyCodexK7 />
 
-      {/* Call To Action & Footer */}
+      {/* CTA & Footer */}
       <CTA />
       <Footer />
     </main>

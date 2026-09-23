@@ -6,72 +6,177 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-white pt-16 pb-12 border-t border-white/10">
+    <footer
+      className="pt-16 pb-12 border-t"
+      style={{ borderColor: 'var(--border)', background: 'var(--surface-dark)' }}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div
+          className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b"
+          style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+        >
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
-            <Link href="/" className="text-2xl font-bold tracking-tight text-white inline-block">
-              CODEX<span className="text-[#E50914]">K7</span>
+            <Link
+              href="/"
+              className="inline-block"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                letterSpacing: '-0.01em',
+                textDecoration: 'none',
+                color: '#F9F6F1',
+              }}
+            >
+              CODEX<span style={{ color: 'var(--primary)' }}>K7</span>
             </Link>
-            <p className="text-xs font-mono font-bold text-[#E50914] tracking-widest uppercase">
+            <p
+              className="text-xs font-semibold uppercase tracking-widest"
+              style={{
+                color: 'var(--primary)',
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: '0.1em',
+              }}
+            >
               WE BUILD AGENTIC AI.
             </p>
-            <p className="text-sm text-white/60 max-w-sm leading-relaxed font-normal">
-              AI Engineering & Product Studio building autonomous agents, generative systems, and production software applications.
+            <p
+              className="text-sm max-w-sm leading-relaxed font-normal"
+              style={{ color: 'rgba(249,246,241,0.5)', fontFamily: "'Inter', sans-serif" }}
+            >
+              AI Engineering &amp; Product Studio building autonomous agents,
+              generative systems, and production software applications.
             </p>
           </div>
 
           {/* Links Columns */}
-          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs font-mono">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs">
             {/* Navigation */}
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block mb-4">
+              <span
+                className="font-bold uppercase tracking-wider block mb-4"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  letterSpacing: '0.08em',
+                  color: '#F9F6F1',
+                }}
+              >
                 Pages
               </span>
-              <ul className="space-y-2.5 text-white/70">
-                <li><Link href="/" className="hover:text-[#E50914] transition-colors">Home</Link></li>
-                <li><Link href="/service" className="hover:text-[#E50914] transition-colors">Service</Link></li>
-                <li><Link href="/product" className="hover:text-[#E50914] transition-colors">Product</Link></li>
-                <li><Link href="/about" className="hover:text-[#E50914] transition-colors">About</Link></li>
-                <li><Link href="/book-call" className="hover:text-[#E50914] transition-colors">Book Call</Link></li>
+              <ul className="space-y-2.5" style={{ color: 'rgba(249,246,241,0.45)' }}>
+                {[
+                  { label: 'Home', href: '/' },
+                  { label: 'Service', href: '/service' },
+                  { label: 'Product', href: '/product' },
+                  { label: 'About', href: '/about' },
+                  { label: 'Book Call', href: '/book-call' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="transition-colors"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      onMouseEnter={(e) =>
+                        ((e.currentTarget as HTMLElement).style.color =
+                          'var(--primary)')
+                      }
+                      onMouseLeave={(e) =>
+                        ((e.currentTarget as HTMLElement).style.color =
+                          'rgba(249,246,241,0.45)')
+                      }
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Work */}
+            {/* Engineering */}
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block mb-4">
+              <span
+                className="font-bold uppercase tracking-wider block mb-4"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  letterSpacing: '0.08em',
+                  color: '#F9F6F1',
+                }}
+              >
                 Engineering
               </span>
-              <ul className="space-y-2.5 text-white/70">
-                <li><Link href="/#projects" className="hover:text-[#E50914] transition-colors">Case Studies</Link></li>
-                <li><Link href="/product" className="hover:text-[#E50914] transition-colors">Proprietary IP</Link></li>
-                <li><Link href="/#agent-demo" className="hover:text-[#E50914] transition-colors">Agent Demo</Link></li>
-                <li><Link href="/book-call" className="hover:text-[#E50914] transition-colors">Contact Us</Link></li>
+              <ul className="space-y-2.5" style={{ color: 'rgba(249,246,241,0.45)' }}>
+                {[
+                  { label: 'Case Studies', href: '/#projects' },
+                  { label: 'Proprietary IP', href: '/product' },
+                  { label: 'Agent Demo', href: '/#agent-demo' },
+                  { label: 'Contact Us', href: '/book-call' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="transition-colors"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      onMouseEnter={(e) =>
+                        ((e.currentTarget as HTMLElement).style.color =
+                          'var(--primary)')
+                      }
+                      onMouseLeave={(e) =>
+                        ((e.currentTarget as HTMLElement).style.color =
+                          'rgba(249,246,241,0.45)')
+                      }
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Capabilities */}
+            {/* Focus Areas */}
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block mb-4">
+              <span
+                className="font-bold uppercase tracking-wider block mb-4"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  letterSpacing: '0.08em',
+                  color: '#F9F6F1',
+                }}
+              >
                 Focus Areas
               </span>
-              <ul className="space-y-2.5 text-white/70">
-                <li>Agentic AI</li>
-                <li>Generative AI</li>
-                <li>AI Automation</li>
-                <li>RAG Engines</li>
-                <li>AI SaaS Studio</li>
+              <ul
+                className="space-y-2.5"
+                style={{
+                  color: 'rgba(249,246,241,0.45)',
+                  fontFamily: "'Inter', sans-serif",
+                }}
+              >
+                {[
+                  'Agentic AI',
+                  'Generative AI',
+                  'AI Automation',
+                  'RAG Engines',
+                  'AI SaaS Studio',
+                ].map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Bottom Copyright Row */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-white/50">
-          <p>© {currentYear} CODEXK7. All rights reserved.</p>
+        {/* Bottom Row */}
+        <div
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            color: 'rgba(249,246,241,0.3)',
+          }}
+        >
+          <p>&copy; {currentYear} CODEXK7. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span>CODEXK7 • AI Engineering & Product Studio</span>
+            <span>CODEXK7 &bull; AI Engineering &amp; Product Studio</span>
           </div>
         </div>
       </div>

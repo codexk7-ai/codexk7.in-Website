@@ -1,25 +1,54 @@
 export default function TrustStrip() {
   const TRUST_ITEMS = [
-    'AI AGENTIC PRODUCTS',
-    'AI STARTUPS',
-    'ENTERPRISE AI',
-    'WORKFLOW AUTOMATION',
-    'DIGITAL PRODUCTS',
+    'AI Agentic Products',
+    'AI Startups',
+    'Enterprise AI',
+    'Workflow Automation',
+    'Digital Products',
   ];
 
   return (
-    <section className="py-6 border-b border-border bg-white">
+    <section
+      className="py-5 border-b"
+      style={{ borderColor: 'var(--border)', background: 'var(--surface-alt)' }}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-xs font-mono font-bold tracking-widest text-foreground/50 whitespace-nowrap">
-            ENGINEERED FOR
+          <span
+            className="text-xs font-semibold uppercase tracking-widest whitespace-nowrap"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              color: 'var(--faint-fg)',
+              letterSpacing: '0.1em',
+            }}
+          >
+            Engineered For
           </span>
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-8 gap-y-2 text-xs font-mono font-semibold tracking-wider text-foreground/80">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2">
             {TRUST_ITEMS.map((item, idx) => (
               <div key={item} className="flex items-center gap-3">
-                <span className="hover:text-[#E50914] transition-colors">{item}</span>
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    color: 'var(--muted-fg)',
+                    fontSize: '0.7rem',
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    fontWeight: 500,
+                  }}
+                >
+                  {item}
+                </span>
                 {idx < TRUST_ITEMS.length - 1 && (
-                  <span className="text-[#E50914] text-[10px]">•</span>
+                  <span
+                    style={{
+                      color: 'var(--primary)',
+                      fontSize: '0.5rem',
+                      opacity: 0.5,
+                    }}
+                  >
+                    ◆
+                  </span>
                 )}
               </div>
             ))}
