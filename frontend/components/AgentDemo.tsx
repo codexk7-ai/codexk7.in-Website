@@ -224,14 +224,14 @@ export default function AgentDemo() {
               style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}
             >
               <div className="flex items-center gap-2">
-                <Terminal className="h-4 w-4" style={{ color: 'var(--primary)' }} />
+                <Terminal className="h-4 w-4" style={{ color: 'var(--primary-on-dark)' }} />
                 <span style={{ color: 'rgba(232,227,220,0.6)' }}>
                   CODEXK7 Agentic Execution Console v1.0.4
                 </span>
               </div>
               <span
-                className="text-[10px] font-bold"
-                style={{ color: 'var(--primary)' }}
+                className="text-[11px] font-bold"
+                style={{ color: 'var(--primary-on-dark)' }}
               >
                 {isRunning ? '● EXECUTING' : isCompleted ? '✓ FINISHED' : 'STANDBY'}
               </span>
@@ -239,7 +239,7 @@ export default function AgentDemo() {
 
             {/* Prompt */}
             <div className="mb-4" style={{ color: 'rgba(232,227,220,0.8)' }}>
-              <span className="font-bold" style={{ color: 'var(--primary)' }}>
+              <span className="font-bold" style={{ color: 'var(--primary-on-dark)' }}>
                 &gt; TASK:{' '}
               </span>
               <span>{activePrompt}</span>
@@ -248,7 +248,7 @@ export default function AgentDemo() {
             {/* Step Trace */}
             <div className="space-y-2 mb-6 min-h-[100px]">
               {currentStep < 0 && (
-                <div style={{ color: 'rgba(232,227,220,0.35)', fontStyle: 'italic' }}>
+                <div style={{ color: 'rgba(232,227,220,0.6)', fontStyle: 'italic' }}>
                   Click &apos;EXECUTE AGENT&apos; to simulate workflow...
                 </div>
               )}
@@ -260,7 +260,7 @@ export default function AgentDemo() {
                 >
                   <ArrowRight
                     className="h-3.5 w-3.5 mt-0.5 shrink-0"
-                    style={{ color: 'var(--primary)' }}
+                    style={{ color: 'var(--primary-on-dark)' }}
                   />
                   <span>{stepText}</span>
                 </div>
@@ -278,7 +278,7 @@ export default function AgentDemo() {
               >
                 <div
                   className="flex items-center gap-2 font-bold mb-2"
-                  style={{ color: 'var(--primary)' }}
+                  style={{ color: 'var(--primary-on-dark)' }}
                 >
                   <CheckCircle2 className="h-4 w-4" />
                   <span>WORKFLOW COMPLETED</span>

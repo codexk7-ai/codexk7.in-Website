@@ -28,7 +28,7 @@ export default function TechnologyCard({ name, description, tag }: TechItemProps
         </h4>
         {tag && (
           <span
-            className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full"
+            className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
             style={{
               fontFamily: "'JetBrains Mono', monospace",
               background: 'rgba(168,32,32,0.08)',

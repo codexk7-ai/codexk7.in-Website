@@ -75,7 +75,7 @@ export default function CaseStudies() {
                       <span className="h-2 w-2 rounded-full bg-green-500/70" />
                     </div>
                     <span
-                      className="text-[10px]"
+                      className="text-[11px]"
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
                         color: 'var(--faint-fg)',
@@ -143,7 +143,7 @@ export default function CaseStudies() {
                   {project.technologies.slice(0, 3).map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] px-2 py-0.5 rounded-md"
+                      className="text-[11px] px-2 py-0.5 rounded-md"
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
                         background: 'var(--surface)',

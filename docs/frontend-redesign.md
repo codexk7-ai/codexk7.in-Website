@@ -15,11 +15,12 @@ The color system emphasizes warm, calm, human tones with a dedicated red accent:
 | `--surface-alt` | `#EDE8E0` | Elevated strips (e.g. TrustStrip, CTA section) |
 | `--surface-dark` | `#1C1917` | Contrast surfaces (Footer, Terminal console) |
 | `--foreground` | `#1C1917` | Primary typography (dark charcoal/brown) |
-| `--muted-fg` | `#6B6560` | Secondary & description copy |
-| `--faint-fg` | `#9E9890` | Sub-labels, metadata, system tags |
+| `--muted-fg` | `#57514B` | Secondary & description copy |
+| `--faint-fg` | `#6B6560` | Sub-labels, metadata, system tags (AA ≥4.5:1 on all light surfaces) |
 | `--primary` | `#A82020` | Signature accent color (CTAs, active paths, badges) |
 | `--primary-hover` | `#8B1A1A` | Button hover & interactive states |
 | `--primary-light` | `#C43030` | Subtle active borders / indicators |
+| `--primary-on-dark` | `#E8615F` | Red text/icons on `--surface-dark` (not button fills) |
 | `--border` | `#E0D9CF` | Structural borders & card dividers |
 | `--border-strong` | `#C8BEB0` | High-contrast boundaries & input borders |
 

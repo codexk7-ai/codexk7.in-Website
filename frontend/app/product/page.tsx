@@ -18,7 +18,7 @@ const UPCOMING_PRODUCTS = [
       'High-throughput framework for deploying autonomous agent teams with built-in consensus loops, memory synchronization, and fallback routing.',
     badgeStyle: {
       background: 'rgba(16, 185, 129, 0.08)',
-      color: '#059669',
+      color: '#047857',
       border: '1px solid rgba(16, 185, 129, 0.25)',
     },
   },
@@ -42,7 +42,7 @@ const UPCOMING_PRODUCTS = [
       'Continuous verification suite for testing AI agent outputs, measuring tool invocation accuracy, and enforcing guardrail constraints.',
     badgeStyle: {
       background: 'rgba(217, 119, 6, 0.08)',
-      color: '#D97706',
+      color: '#92400E',
       border: '1px solid rgba(217, 119, 6, 0.25)',
     },
   },
@@ -105,7 +105,7 @@ export default function ProductPage() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className="text-[10px] font-semibold px-2.5 py-1 rounded-md"
+                      className="text-[11px] font-semibold px-2.5 py-1 rounded-md"
                       style={prod.badgeStyle}
                     >
                       {prod.status}

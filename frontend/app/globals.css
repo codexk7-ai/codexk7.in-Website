@@ -11,13 +11,14 @@
 
   /* Text */
   --foreground:    #1C1917;
-  --muted-fg:      #6B6560;
-  --faint-fg:      #9E9890;
+  --muted-fg:      #57514B;
+  --faint-fg:      #6B6560;
 
   /* Accent / Primary */
   --primary:       #A82020;
   --primary-hover: #8B1A1A;
   --primary-light: #C43030;
+  --primary-on-dark: #E8615F; /* red text on --surface-dark; #A82020 is only 2.4:1 there */
 
   /* Cards / Borders */
   --card:          #FFFFFF;
@@ -53,8 +54,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* No color here: headings inherit, so they stay legible inside dark blocks */
 h1, h2, h3, h4 {
-  color: var(--foreground);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -267,16 +268,16 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(168, 32, 32, 0.07);
-  border: 1px solid rgba(168, 32, 32, 0.22);
+  background: rgba(168, 32, 32, 0.06);
+  border: 1px solid rgba(168, 32, 32, 0.2);
   color: var(--primary);
-  border-radius: 9999px;
-  font-size: 0.68rem;
+  border-radius: 6px;
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 14px;
-  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* Legacy alias */

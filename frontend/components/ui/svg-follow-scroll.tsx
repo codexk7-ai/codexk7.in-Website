@@ -97,7 +97,7 @@ const StaticVersion = () => {
               0{idx + 1}
             </span>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider block" style={{ color: 'var(--primary)', fontFamily: "'JetBrains Mono', monospace" }}>
+              <span className="text-[11px] font-bold uppercase tracking-wider block" style={{ color: 'var(--primary)', fontFamily: "'JetBrains Mono', monospace" }}>
                 {step.label}
               </span>
               <h3 className="text-base font-semibold text-foreground mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>
@@ -129,12 +129,15 @@ const Skiper19 = () => {
   return (
     <section
       ref={ref}
-      className="mx-auto flex h-[320vh] w-full max-w-full flex-col items-center overflow-hidden relative"
+      className="mx-auto flex w-full max-w-full flex-col items-center overflow-hidden relative pb-24"
       style={{ background: 'var(--background)', color: 'var(--foreground)' }}
       aria-label="CODEXK7 AI Scroll Journey"
     >
-      {/* Top sticky/relative header */}
-      <div className="mt-24 sm:mt-32 relative z-10 flex w-full max-w-4xl flex-col items-center justify-center gap-4 text-center px-4">
+      {/* Top sticky/relative header; the halo keeps text legible where the red path crosses it */}
+      <div
+        className="mt-24 sm:mt-32 relative z-10 flex w-full max-w-4xl flex-col items-center justify-center gap-4 text-center px-4"
+        style={{ textShadow: '0 0 8px var(--background), 0 0 16px var(--background), 0 0 24px var(--background)' }}
+      >
         <span className="badge-editorial inline-block mb-1">
           THE ENGINEERING LIFECYCLE
         </span>
@@ -155,7 +158,7 @@ const Skiper19 = () => {
         </p>
 
         {/* Ambient SVG background path */}
-        <div className="absolute -right-[35%] sm:-right-[20%] lg:-right-[10%] top-6 pointer-events-none z-0 opacity-80">
+        <div className="absolute -right-[35%] sm:-right-[20%] lg:-right-[10%] top-6 pointer-events-none -z-10 opacity-80">
           <LinePath scrollYProgress={scrollYProgress} />
         </div>
       </div>
@@ -169,7 +172,7 @@ const Skiper19 = () => {
             style={{ backdropFilter: 'blur(8px)', background: 'rgba(255, 255, 255, 0.85)' }}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-bold" style={{ color: 'var(--primary)', fontFamily: "'JetBrains Mono', monospace" }}>
+              <span className="text-[11px] font-bold" style={{ color: 'var(--primary)', fontFamily: "'JetBrains Mono', monospace" }}>
                 0{idx + 1}
               </span>
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--primary)' }} />
@@ -177,7 +180,7 @@ const Skiper19 = () => {
             <span className="text-xs font-bold uppercase tracking-wider block" style={{ fontFamily: "'Inter', sans-serif" }}>
               {step.label}
             </span>
-            <span className="text-[11px] line-clamp-1 mt-1" style={{ color: 'var(--muted-fg)' }}>
+            <span className="text-xs leading-snug line-clamp-2 mt-1" style={{ color: 'var(--muted-fg)' }}>
               {step.title}
             </span>
           </div>
@@ -186,7 +189,7 @@ const Skiper19 = () => {
 
       {/* Grand Reveal Section (Dark warm charcoal contrasting block) */}
       <div
-        className="rounded-3xl sm:rounded-4xl w-[92%] sm:w-[94%] max-w-6xl translate-y-[90vh] sm:translate-y-[110vh] pb-14 px-6 sm:px-12 relative z-10 transition-transform shadow-xl border"
+        className="mt-20 rounded-3xl sm:rounded-4xl w-[92%] sm:w-[94%] max-w-6xl pb-14 px-6 sm:px-12 relative z-10 shadow-xl border"
         style={{
           background: 'var(--surface-dark)',
           color: '#F9F6F1',
@@ -198,17 +201,17 @@ const Skiper19 = () => {
             <div>
               <span
                 className="text-xs font-semibold uppercase tracking-widest block mb-2"
-                style={{ color: 'var(--primary)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.12em' }}
+                style={{ color: 'var(--primary-on-dark)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.12em' }}
               >
                 CODEXK7 ENGINEERING STUDIO
               </span>
-              <h1
+              <h2
                 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 We build intelligent products <br />
-                <span style={{ color: 'var(--primary)' }}>and AI systems.</span>
-              </h1>
+                <span style={{ color: 'var(--primary-on-dark)' }}>and AI systems.</span>
+              </h2>
             </div>
 
             <Link
@@ -238,7 +241,7 @@ const Skiper19 = () => {
                   className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
                   style={{
                     background: 'rgba(168, 32, 32, 0.12)',
-                    color: 'var(--primary)',
+                    color: 'var(--primary-on-dark)',
                   }}
                 >
                   <Icon className="h-4 w-4" />
@@ -264,15 +267,15 @@ const Skiper19 = () => {
           }}
         >
           <div>
-            <span className="text-[10px] block" style={{ color: 'var(--primary)' }}>STUDIO ARCHITECTURE</span>
+            <span className="text-[11px] block" style={{ color: 'var(--primary-on-dark)' }}>STUDIO ARCHITECTURE</span>
             <span className="font-semibold text-white">Fullstack &bull; Agentic &bull; Edge</span>
           </div>
           <div>
-            <span className="text-[10px] block" style={{ color: 'var(--primary)' }}>OPERATIONAL STANDARD</span>
+            <span className="text-[11px] block" style={{ color: 'var(--primary-on-dark)' }}>OPERATIONAL STANDARD</span>
             <span className="font-semibold text-white">Deterministic &bull; Zero-Hallucination</span>
           </div>
           <div>
-            <span className="text-[10px] block" style={{ color: 'var(--primary)' }}>RELIABILITY SLA</span>
+            <span className="text-[11px] block" style={{ color: 'var(--primary-on-dark)' }}>RELIABILITY SLA</span>
             <span className="font-semibold text-white">99.99% Uptime &bull; Enterprise Ready</span>
           </div>
         </div>

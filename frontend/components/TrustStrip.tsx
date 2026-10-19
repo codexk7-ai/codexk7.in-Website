@@ -41,6 +41,7 @@ export default function TrustStrip() {
                 </span>
                 {idx < TRUST_ITEMS.length - 1 && (
                   <span
+                    aria-hidden="true"
                     style={{
                       color: 'var(--primary)',
                       fontSize: '0.5rem',

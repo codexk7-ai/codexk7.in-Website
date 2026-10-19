@@ -62,7 +62,7 @@ export default function AboutPage() {
                 <Activity className="h-4 w-4" style={{ color: 'var(--primary)' }} />
                 SYSTEM PERFORMANCE BENCHMARKS
               </span>
-              <span className="text-[10px] font-mono" style={{ color: 'var(--faint-fg)' }}>UPDATED LIVE • Q3 2026</span>
+              <span className="text-[11px] font-mono" style={{ color: 'var(--faint-fg)' }}>UPDATED LIVE • Q3 2026</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -71,7 +71,7 @@ export default function AboutPage() {
                   key={metric.label}
                   className="card-editorial-hover p-6 rounded-xl"
                 >
-                  <span className="text-[10px] font-semibold tracking-wider block mb-2" style={{ color: 'var(--faint-fg)', fontFamily: "'Inter', sans-serif" }}>
+                  <span className="text-[11px] font-semibold tracking-wider block mb-2" style={{ color: 'var(--faint-fg)', fontFamily: "'Inter', sans-serif" }}>
                     {metric.label}
                   </span>
                   <div className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2" style={{ color: 'var(--primary)', fontFamily: "'Cormorant Garamond', serif" }}>

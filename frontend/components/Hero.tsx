@@ -3,6 +3,17 @@
 import Link from 'next/link';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 
+// Hero console: the USER → ACTION pipeline from the architecture spec, shown as a run trace
+const TRACE = [
+  { step: 'intent.parse', detail: 'request → task spec' },
+  { step: 'gateway.guard', detail: 'policy & PII checks' },
+  { step: 'agent.plan', detail: 'multi-step graph' },
+  { step: 'tools.call', detail: 'typed API calls' },
+  { step: 'rag.retrieve', detail: 'grounded context' },
+  { step: 'state.persist', detail: 'durable memory' },
+  { step: 'action.commit', detail: 'deterministic output' },
+];
+
 export default function Hero() {
   return (
     <section
@@ -30,7 +41,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-x-12">
         {/* Eyebrow */}
         <div className="mb-8 inline-flex">
           <span className="badge-editorial">
@@ -130,6 +141,46 @@ export default function Hero() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Run trace console (desktop) */}
+        <div
+          aria-hidden="true"
+          className="hidden lg:block lg:col-start-2 lg:row-start-1 lg:row-span-2 self-center rounded-2xl overflow-hidden shadow-xl"
+          style={{
+            background: 'var(--surface-dark)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            fontFamily: "'JetBrains Mono', monospace",
+            color: '#E8E3DC',
+          }}
+        >
+          <div
+            className="flex items-center gap-2 px-4 py-3 text-[11px]"
+            style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', color: 'rgba(232,227,220,0.6)' }}
+          >
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(232,227,220,0.2)' }} />
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'rgba(232,227,220,0.2)' }} />
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'var(--primary-on-dark)' }} />
+            <span className="ml-2">codexk7 · agent.run</span>
+          </div>
+          <ol className="relative px-5 py-5 space-y-3.5 text-xs">
+            {TRACE.map(({ step, detail }, i) => {
+              const done = i === TRACE.length - 1;
+              return (
+                <li key={step} className="flex items-baseline gap-3">
+                  <span style={{ color: done ? 'var(--primary-on-dark)' : 'rgba(232,227,220,0.6)' }}>
+                    {done ? '✓' : '›'}
+                  </span>
+                  <span className="font-semibold" style={{ color: done ? 'var(--primary-on-dark)' : '#E8E3DC' }}>
+                    {step}
+                  </span>
+                  <span className="ml-auto text-[11px]" style={{ color: 'rgba(232,227,220,0.6)' }}>
+                    {detail}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </div>
     </section>

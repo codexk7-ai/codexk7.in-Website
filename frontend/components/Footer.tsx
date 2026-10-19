@@ -29,12 +29,12 @@ export default function Footer() {
                 color: '#F9F6F1',
               }}
             >
-              CODEX<span style={{ color: 'var(--primary)' }}>K7</span>
+              CODEX<span style={{ color: 'var(--primary-on-dark)' }}>K7</span>
             </Link>
             <p
               className="text-xs font-semibold uppercase tracking-widest"
               style={{
-                color: 'var(--primary)',
+                color: 'var(--primary-on-dark)',
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: '0.1em',
               }}
@@ -64,7 +64,7 @@ export default function Footer() {
               >
                 Pages
               </span>
-              <ul className="space-y-2.5" style={{ color: 'rgba(249,246,241,0.45)' }}>
+              <ul className="space-y-2.5" style={{ color: 'rgba(249,246,241,0.6)' }}>
                 {[
                   { label: 'Home', href: '/' },
                   { label: 'Service', href: '/service' },
@@ -79,11 +79,11 @@ export default function Footer() {
                       style={{ fontFamily: "'Inter', sans-serif" }}
                       onMouseEnter={(e) =>
                         ((e.currentTarget as HTMLElement).style.color =
-                          'var(--primary)')
+                          'var(--primary-on-dark)')
                       }
                       onMouseLeave={(e) =>
                         ((e.currentTarget as HTMLElement).style.color =
-                          'rgba(249,246,241,0.45)')
+                          'rgba(249,246,241,0.6)')
                       }
                     >
                       {link.label}
@@ -105,7 +105,7 @@ export default function Footer() {
               >
                 Engineering
               </span>
-              <ul className="space-y-2.5" style={{ color: 'rgba(249,246,241,0.45)' }}>
+              <ul className="space-y-2.5" style={{ color: 'rgba(249,246,241,0.6)' }}>
                 {[
                   { label: 'Case Studies', href: '/#projects' },
                   { label: 'Proprietary IP', href: '/product' },
@@ -119,11 +119,11 @@ export default function Footer() {
                       style={{ fontFamily: "'Inter', sans-serif" }}
                       onMouseEnter={(e) =>
                         ((e.currentTarget as HTMLElement).style.color =
-                          'var(--primary)')
+                          'var(--primary-on-dark)')
                       }
                       onMouseLeave={(e) =>
                         ((e.currentTarget as HTMLElement).style.color =
-                          'rgba(249,246,241,0.45)')
+                          'rgba(249,246,241,0.6)')
                       }
                     >
                       {link.label}
@@ -148,7 +148,7 @@ export default function Footer() {
               <ul
                 className="space-y-2.5"
                 style={{
-                  color: 'rgba(249,246,241,0.45)',
+                  color: 'rgba(249,246,241,0.6)',
                   fontFamily: "'Inter', sans-serif",
                 }}
               >
@@ -171,7 +171,7 @@ export default function Footer() {
           className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs"
           style={{
             fontFamily: "'Inter', sans-serif",
-            color: 'rgba(249,246,241,0.3)',
+            color: 'rgba(249,246,241,0.5)',
           }}
         >
           <p>&copy; {currentYear} CODEXK7. All rights reserved.</p>

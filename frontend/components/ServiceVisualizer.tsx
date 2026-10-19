@@ -57,12 +57,12 @@ export default function ServiceVisualizer() {
           />
           <span
             className="font-bold tracking-widest uppercase"
-            style={{ color: 'var(--primary)' }}
+            style={{ color: 'var(--primary-on-dark)' }}
           >
             AI ENGINE REAL-TIME VISUALIZER
           </span>
         </div>
-        <span style={{ color: 'rgba(232,227,220,0.35)', fontSize: '11px' }}>
+        <span style={{ color: 'rgba(232,227,220,0.6)', fontSize: '11px' }}>
           CODEXK7 SYSTEM SIMULATOR v2.4
         </span>
       </div>
@@ -122,11 +122,11 @@ export default function ServiceVisualizer() {
                     </span>
                     {isPulsing && (
                       <span
-                        className="text-[10px] px-1.5 py-0.5 rounded font-bold"
+                        className="text-[11px] px-1.5 py-0.5 rounded font-bold"
                         style={{
                           background: 'rgba(168,32,32,0.15)',
                           border: '1px solid rgba(168,32,32,0.35)',
-                          color: 'var(--primary)',
+                          color: 'var(--primary-on-dark)',
                         }}
                       >
                         RUNNING
@@ -134,8 +134,8 @@ export default function ServiceVisualizer() {
                     )}
                   </div>
                   <span
-                    className="text-[10px] block tracking-wider"
-                    style={{ color: 'rgba(232,227,220,0.4)' }}
+                    className="text-[11px] block tracking-wider"
+                    style={{ color: 'rgba(232,227,220,0.6)' }}
                   >
                     {node.type}
                   </span>
@@ -150,8 +150,8 @@ export default function ServiceVisualizer() {
                   {node.latency}
                 </span>
                 <span
-                  className="text-[9px] uppercase"
-                  style={{ color: 'rgba(232,227,220,0.3)' }}
+                  className="text-[11px] uppercase"
+                  style={{ color: 'rgba(232,227,220,0.6)' }}
                 >
                   LATENCY
                 </span>
@@ -171,12 +171,12 @@ export default function ServiceVisualizer() {
       >
         <div className="flex items-center justify-between mb-2">
           <span
-            className="text-[10px] font-bold uppercase tracking-widest"
-            style={{ color: 'var(--primary)' }}
+            className="text-[11px] font-bold uppercase tracking-widest"
+            style={{ color: 'var(--primary-on-dark)' }}
           >
             SELECTED MODULE INSPECTOR
           </span>
-          <span style={{ color: 'rgba(232,227,220,0.35)', fontSize: '10px' }}>
+          <span style={{ color: 'rgba(232,227,220,0.6)', fontSize: '11px' }}>
             NODE ID: #{activeNode.id}
           </span>
         </div>
@@ -190,7 +190,7 @@ export default function ServiceVisualizer() {
           className="flex items-center justify-between text-[11px] pt-2"
           style={{
             borderTop: '1px solid rgba(255,255,255,0.06)',
-            color: 'rgba(232,227,220,0.4)',
+            color: 'rgba(232,227,220,0.6)',
           }}
         >
           <span>PIPELINE STATUS:</span>

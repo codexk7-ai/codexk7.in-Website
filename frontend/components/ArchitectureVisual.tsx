@@ -84,7 +84,7 @@ export default function ArchitectureVisual() {
 
         {/* Node Flow Diagram */}
         <div className="card-editorial rounded-2xl p-6 md:p-8 overflow-x-auto">
-          <div className="flex items-center justify-between min-w-[700px] gap-2">
+          <div className="flex items-center justify-between min-w-[880px] gap-2">
             {NODES.map((node, index) => {
               const Icon = node.icon;
               const isActive = index === activeStep;
@@ -139,7 +139,7 @@ export default function ArchitectureVisual() {
                       {node.label}
                     </span>
                     <span
-                      className="text-[10px] mt-1 line-clamp-1"
+                      className="text-[11px] leading-snug mt-1 line-clamp-2"
                       style={{ color: 'var(--faint-fg)', fontFamily: "'Inter', sans-serif" }}
                     >
                       {node.desc}
